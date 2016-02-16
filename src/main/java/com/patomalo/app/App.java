@@ -4,18 +4,24 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
+import org.json.JSONObject;
+
 /**
- * Hello world!
+ * Hello world!l
  *
  */
 public class App 
 {
+    public static String HOST;
+    public static String API_KEY;
+
     public static void main( String[] args )
     {
         System.out.println("Hello World!");
         System.out.println("Respose Code: "+getRequest());
         System.out.println("host: " + System.getProperty("serverHost"));
         System.out.println("user: "+ System.getProperty("userKey"));
+        JSONObject jsonObject = new JSONObject();
     }
 
     public static String getHost(){
@@ -28,8 +34,8 @@ public class App
     }
     public static int getRequest() {
         int out=500;
-        String HOST=getHost();
-        String API_KEY=getApi_key();
+        HOST=getHost();
+        API_KEY=getApi_key();
         try {
             Client client = Client.create();
             WebResource webResource = client.resource("http://"+HOST+":8080/riot-core-services/api/thing/");
@@ -49,5 +55,45 @@ public class App
             e.printStackTrace();
         }
         return out;
+    }
+    public static int putRequest(String serial){
+        //{"group":">mojix>SM","name":"pato","serialNumber":"pato","thingTypeCode":"default_rfid_thingtype"}
+        String s = "{\"group\":\">mojix>SM\",\"name\":\"TT2\",\"serialNumber\":\"TT2\",\"thingTypeCode\":\"default_rfid_thingtype\"}";
+        HOST = getHost();
+        API_KEY=getApi_key();
+        try{
+            Client client = Client.create();
+            WebResource webResource = client.resource("http://" + HOST + ":8080/riot-core-services/api/thing/");
+            String bodyInput = "{\"group\":\">mojix>SM\",\"name\":\""+serial+"\",\"serialNumber\":\""+serial+"\",\"thingTypeCode\":\"default_rfid_thingtype\"}";
+            ClientResponse response = webResource.type("application/json").header("api_key",API_KEY).put(ClientResponse.class, s);
+            System.out.println("PUT status:"+response.getStatus());
+            String out = response.getEntity(String.class);
+            JSONObject jsonObject = new JSONObject(out);
+            System.out.println("salida: "+jsonObject);
+            return response.getStatus();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public static int deleteRequest(int id){
+        HOST = getHost();
+        API_KEY=getApi_key();
+        try{
+            Client client = Client.create();
+            WebResource webResource = client.resource("http://" + HOST + ":8080/riot-core-services/api/thing/"+id);
+            ClientResponse response = webResource.accept("application/json").header("api_key",API_KEY).delete(ClientResponse.class);
+            System.out.println("PUT status:"+response.getStatus());
+            //System.out.println("SOMETHING: "+response.getEntity(String.class));
+            return response.getStatus();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            return 0;
+        }
     }
 }

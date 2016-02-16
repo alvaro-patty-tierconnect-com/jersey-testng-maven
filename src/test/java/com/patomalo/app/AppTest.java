@@ -11,36 +11,25 @@ public class AppTest extends App
 {
 
     @Test
-    public void testCaseRegister(){
-        System.out.println("Register User");
-    }
-
-    @Test
-    public void testCaseLoginTest() {
-        System.out.println("Loggin into the app");
-    }
-
-    @Test
-    public void testCasePasswordChange(){
-        System.out.println("Changing password");
-    }
-
-    @Test
     public void getThings() {
-        System.out.println("Getting all the Things test");
+        System.out.println("Test: GET Things");
         int resposeCode = getRequest();
-        Assert.assertTrue(resposeCode == 200, "There was an error anwser");
+        Assert.assertTrue(resposeCode == 200, "There was an error answer");
     }
 
     @Test
-    public void upoladPic(){
-        String expected="A";
-        String actual="A";
-        //Assertion in testng
-
-        Assert.assertEquals(actual, expected);
-
-        Assert.assertTrue(3 > 2, "Some erro msg");
-
+    public void putThings() {
+        System.out.println("Test: PUT Things");
+        int responseCode = putRequest("TEST2");
+        Assert.assertTrue(responseCode == 200, "There was an error answer");
     }
+
+
+    @Test
+    public void deleteThing() {
+        System.out.println("Test: DELETE Thing");
+        int responseCode = deleteRequest(29);
+        Assert.assertTrue(responseCode == 204,"There was an error");
+    }
+
 }
