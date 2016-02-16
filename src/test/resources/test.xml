@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test">
+
+  <test name="App Test">
+    <classes>
+      <class name="com.patomalo.app.AppTest" />
+    </classes>
+  </test>
+</suite>
