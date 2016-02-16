@@ -6,9 +6,4 @@
       <class name="com.patomalo.app.AppTest" />
     </classes>
   </test>
-  <test name="UploadPick">
-    <classes>
-      <class name="com.patomalo.app.UploadPickTest" />
-    </classes>
-  </test>
 </suite>

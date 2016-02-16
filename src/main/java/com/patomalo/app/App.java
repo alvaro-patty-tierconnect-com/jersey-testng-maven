@@ -14,14 +14,26 @@ public class App
     {
         System.out.println("Hello World!");
         System.out.println("Respose Code: "+getRequest());
+        System.out.println("host: " + System.getProperty("serverHost"));
+        System.out.println("user: "+ System.getProperty("userKey"));
     }
 
+    public static String getHost(){
+        String host = System.getProperty("serverHost");
+        return host;
+    }
+    public static String getApi_key(){
+        String api_key = System.getProperty("userKey");
+        return api_key;
+    }
     public static int getRequest() {
         int out=500;
+        String HOST=getHost();
+        String API_KEY=getApi_key();
         try {
             Client client = Client.create();
-            WebResource webResource = client.resource("http://localhost:8080/riot-core-services/api/thing/");
-            ClientResponse response = webResource.accept("application/json").header("api_key","root").get(ClientResponse.class);
+            WebResource webResource = client.resource("http://"+HOST+":8080/riot-core-services/api/thing/");
+            ClientResponse response = webResource.accept("application/json").header("api_key",API_KEY).get(ClientResponse.class);
             //ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);
 
             if(response.getStatus() != 200){

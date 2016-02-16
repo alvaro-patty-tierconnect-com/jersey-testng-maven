@@ -40,6 +40,7 @@ public class AppTest extends App
 
         Assert.assertEquals(actual, expected);
 
-        Assert.assertTrue(3>2,"Some erro msg");
+        Assert.assertTrue(3 > 2, "Some erro msg");
+
     }
 }

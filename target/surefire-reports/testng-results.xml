@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="0" passed="0">
+<testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="com.patomalo.app.AppTest" duration-ms="5" started-at="2016-02-15T21:38:17Z" finished-at="2016-02-15T21:38:17Z">
+  <suite name="Command line suite" duration-ms="513" started-at="2016-02-16T06:06:31Z" finished-at="2016-02-16T06:06:32Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="5" started-at="2016-02-15T21:38:17Z" finished-at="2016-02-15T21:38:17Z">
+    <test name="Command line test" duration-ms="513" started-at="2016-02-16T06:06:31Z" finished-at="2016-02-16T06:06:32Z">
+      <class name="com.patomalo.app.AppTest">
+        <test-method status="PASS" signature="getThings()[pri:0, instance:com.patomalo.app.AppTest@48140564]" name="getThings" duration-ms="494" started-at="2016-02-16T02:06:31Z" finished-at="2016-02-16T02:06:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getThings -->
+        <test-method status="PASS" signature="testCaseLoginTest()[pri:0, instance:com.patomalo.app.AppTest@48140564]" name="testCaseLoginTest" duration-ms="0" started-at="2016-02-16T02:06:32Z" finished-at="2016-02-16T02:06:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCaseLoginTest -->
+        <test-method status="PASS" signature="testCasePasswordChange()[pri:0, instance:com.patomalo.app.AppTest@48140564]" name="testCasePasswordChange" duration-ms="0" started-at="2016-02-16T02:06:32Z" finished-at="2016-02-16T02:06:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCasePasswordChange -->
+        <test-method status="PASS" signature="testCaseRegister()[pri:0, instance:com.patomalo.app.AppTest@48140564]" name="testCaseRegister" duration-ms="0" started-at="2016-02-16T02:06:32Z" finished-at="2016-02-16T02:06:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCaseRegister -->
+        <test-method status="PASS" signature="upoladPic()[pri:0, instance:com.patomalo.app.AppTest@48140564]" name="upoladPic" duration-ms="0" started-at="2016-02-16T02:06:32Z" finished-at="2016-02-16T02:06:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- upoladPic -->
+      </class> <!-- com.patomalo.app.AppTest -->
     </test> <!-- Command line test -->
-  </suite> <!-- com.patomalo.app.AppTest -->
+  </suite> <!-- Command line suite -->
 </testng-results>
