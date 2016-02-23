@@ -5,8 +5,8 @@
     <classes>
       <class name="com.patomalo.app.AppTest">
         <methods>
-          <include name="putThings"/>
-          <include name="deleteThing"/>
+          <include name="postLogin"/>
+          <include name="getThings"/>
         </methods>
       </class> <!-- com.patomalo.app.AppTest -->
     </classes>
